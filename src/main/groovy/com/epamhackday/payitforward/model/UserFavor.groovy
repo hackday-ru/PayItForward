@@ -21,6 +21,7 @@ class UserFavor {
     User user
     Favor favor
     String description
+    Type type
     boolean deleted
 
 }
