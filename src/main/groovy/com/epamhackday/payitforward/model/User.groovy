@@ -7,14 +7,11 @@ import org.springframework.data.mongodb.core.mapping.Document
 
 @ToString(includeNames = true)
 @Canonical
-@Document(collection = User.COLLECTION_NAME)
+@Document
 class User {
-
-    public static final String COLLECTION_NAME = "user";
-
     @Id
+    String id
     String name
     String email
     String password
-
 }

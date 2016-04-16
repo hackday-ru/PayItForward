@@ -4,4 +4,5 @@ import com.epamhackday.payitforward.model.Favor
 import org.springframework.data.mongodb.repository.MongoRepository
 
 interface FavorRepository extends MongoRepository<Favor, String> {
+    List<Favor> findByCategoryId(String categoryId)
 }
