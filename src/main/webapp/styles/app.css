@@ -281,6 +281,14 @@ a:focus {
     text-align: center;
 }
 
+
+#footerwrap {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background: #384452;
+}
+
+
 #footerwrap p {
     color: #bfc9d3;
 }
