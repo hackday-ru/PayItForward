@@ -57,18 +57,16 @@ class UserFavorController {
         userFavorRepository.findAll()
     }
 
-    @RequestMapping(value = "/type/{favorType}", method = RequestMethod.GET,
-            produces = "application/json")
+    @RequestMapping(value = "/type/{favorType}", method = RequestMethod.GET)
     @ResponseBody
-    String categoriesByType(@PathVariable FavorType favorType) {
+    def categoriesByType(@PathVariable FavorType favorType) {
         def userFavors = userFavorRepository.findByType(favorType)
         userFavors.collect { userFavor -> userFavor.favor.category }.toSet()
     }
 
-    @RequestMapping(value = "/category/{categoryName}/{favorType}", method = RequestMethod.GET,
-            produces = "application/json")
+    @RequestMapping(value = "/category/{categoryName}/{favorType}", method = RequestMethod.GET)
     @ResponseBody
-    String favorsByCategoryAndType(@PathVariable String category,
+    def favorsByCategoryAndType(@PathVariable String category,
                                    @PathVariable FavorType favorType) {
         def userFavors = userFavorRepository.findByType(favorType)
         userFavors.findAll { userFavor -> userFavor.favor.category.name == category }

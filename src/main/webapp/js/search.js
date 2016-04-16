@@ -33,18 +33,18 @@ angular.module('payForward.search', ['ngRoute', 'ngResource', 'ui.bootstrap'])
         };
     })
     .service('SearchService', function ($resource) {
-        return $resource('/userfavor/:id', {id: '@id'}, {
+        return $resource('/user/favor/:id', {id: '@id'}, {
             getCategoriesByType: {
                 method: 'GET',
                 isArray: true,
-                url: '/userfavor/type/:favorType',
+                url: '/user/favor/type/:favorType',
                 params: {
                     favorType: '@favorType'
                 }
             },
             getFavorsByCategory: {
                 method: 'GET',
-                url: '/userfavor/category/:category/:favorType',
+                url: '/user/favor/category/:category/:favorType',
                 isArray: true,
                 params: {
                     category: '@category',
