@@ -34,7 +34,7 @@ repositories {
 dependencies {
     compile "org.springframework.boot:spring-boot-starter:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
-    compile "org.springframework.boot:spring-boot-starter-data-mongodb:1.9.1.RELEASE"
+    //compile "org.springframework.boot:spring-boot-starter-data-mongodb:1.9.1.RELEASE"
     compile 'com.gmongo:gmongo:1.5'
 
     testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
