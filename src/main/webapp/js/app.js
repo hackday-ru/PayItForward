@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('payForwardApp', ['ngRoute', 'payForward.user',
-        'payForward.deal', 'payForward.favor',  'payForward.search'])
+        'payForward.deal', 'payForward.favor', 'payForward.search'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/profile', {
@@ -20,6 +20,7 @@ angular.module('payForwardApp', ['ngRoute', 'payForward.user',
                 templateUrl: 'views/add-favor.html',
                 controller: 'AddFavorCtrl',
                 controllerAs: 'addFavorCtrl'
+            })
             .when('/favors', {
                 templateUrl: 'views/favors.html',
                 controller: 'FavorCtrl'
