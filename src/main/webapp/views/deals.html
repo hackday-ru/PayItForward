@@ -4,7 +4,69 @@
     <meta charset="UTF-8">
     <title>Deals</title>
 </head>
-<body>
-List of deals for the logged in user
+<body ng-controller="DealCtrl">
+<h1>Deals</h1>
+<h2>Incoming deals</h2>
+<table class="table">
+    <tr>
+        <td>
+        <th>Who</th>
+        </td>
+        <td>
+        <th>He wants</th>
+        </td>
+        <td>
+        <th>He offers</th>
+        </td>
+        <td>
+        <th>Description</th>
+        </td>
+        <td>
+        <th>Actions</th>
+        </td>
+    </tr>
+    <tr ng-repeat="deal in incomingDeals">
+        <td>{{deal.initiator.user.name}}</td>
+        <td>{{deal.acceptor.favor.name}}</td>
+        <td>{{deal.initiator.favor.name}}</td>
+        <td>{{deal.initiator.favor.description}}</td>
+        <td>
+            <button id="acceptButton{{deal.id}}" class="btn" ng-click="acceptDeal(deal.id)">Accept</button>
+            </br>
+            <button id="rejectButton{{deal.id}}" class="btn" ng-click="rejectDeal(deal.id)">Reject</button>
+        </td>
+    </tr>
+</table>
+<h2>Outgoing deals</h2>
+<table class="table">
+    <tr>
+        <td>
+        <th>Who</th>
+        </td>
+        <td>
+        <th>You want</th>
+        </td>
+        <td>
+        <th>You offer</th>
+        </td>
+        <td>
+        <th>Description</th>
+        </td>
+        <td>
+        <th>Date</th>
+        </td>
+        <td>
+        <th>Status</th>
+        </td>
+    </tr>
+    <tr ng-repeat="deal in outgoingDetails">
+        <td>{{deal.acceptor.user.name}}</td>
+        <td>{{deal.acceptor.favor.name}}</td>
+        <td>{{deal.initiator.favor.name}}</td>
+        <td>{{deal.initiator.favor.description}}</td>
+        <td>{{deal.date}}</td>
+        <td>{{deal.status}}</td>
+    </tr>
+</table>
 </body>
 </html>
