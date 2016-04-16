@@ -1,9 +1,6 @@
 package com.epamhackday.payitforward.model
 
 
-enum Type {
-
-    WANT,
-
-    CAN
+enum FavorType {
+    WANT, CAN
 }

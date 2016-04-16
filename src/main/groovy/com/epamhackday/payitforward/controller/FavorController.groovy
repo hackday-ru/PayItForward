@@ -2,47 +2,28 @@ package com.epamhackday.payitforward.controller
 
 import com.epamhackday.payitforward.model.Favor
 import com.epamhackday.payitforward.repository.FavorRepository
-import groovy.json.JsonBuilder
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 
-/**
- * Created by bu3apd on 4/16/2016.
- */
-@Controller
-@RequestMapping("/favor")
+@RestController
+@RequestMapping('/favor')
 class FavorController {
 
     @Autowired
-    FavorRepository favorRepository
+    private FavorRepository favorRepository
 
-    @RequestMapping(method = RequestMethod.DELETE, produces = "application/json")
-    @ResponseBody
-    String delete(@RequestBody Favor favor) {
-        def jsonBuilder = new JsonBuilder(favorRepository.delete(favor.id));
-        return "Favor with id " + favor.id + " successfully deleted";
+    @RequestMapping(value = '/{id}', method = RequestMethod.DELETE)
+    def delete(@PathVariable String id) {
+        favorRepository.delete(id)
     }
 
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    @ResponseBody
-    String save(@RequestBody Favor favor) {
-        def jsonBuilder = new JsonBuilder(favorRepository.save(favor));
-        return jsonBuilder.toPrettyString()
+    @RequestMapping(method = RequestMethod.POST)
+    def save(@RequestBody Favor favor) {
+        favorRepository.save(favor)
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-    @ResponseBody
-    String get(@PathVariable Long id) {
-        def jsonBuilder = new JsonBuilder(favorRepository.findById(id));
-        return jsonBuilder.toPrettyString()
+    @RequestMapping(method = RequestMethod.GET)
+    def list() {
+        favorRepository.findAll()
     }
-
-    @RequestMapping(value = "/list", method = RequestMethod.GET, produces = "application/json")
-    @ResponseBody
-    String list() {
-        def jsonBuilder = new JsonBuilder(favorRepository.findAll())
-        return jsonBuilder.toPrettyString()
-    }
-
 }

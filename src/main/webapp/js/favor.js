@@ -7,7 +7,7 @@ angular.module('payForward.favor', ['ngRoute', 'ngResource'])
         vm.userFavor = {};
 
         vm.categories = Category.query();
-        // $scope.favors = Favor.query();
+        vm.favors = Favor.query();
     })
     .factory('Category', function ($resource) {
         return $resource('/category', {});
