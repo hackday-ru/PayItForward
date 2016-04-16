@@ -19,8 +19,8 @@ class Deal {
 
     @Id
     Long id
-    UserFavor userFavor1
-    UserFavor userFavor2
+    UserFavor initiator
+    UserFavor acceptor
     Status status
     ZonedDateTime date
 }
