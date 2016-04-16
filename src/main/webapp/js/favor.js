@@ -16,6 +16,12 @@ angular.module('payForward.favor', ['ngRoute', 'ngResource'])
                 UserFavor.save(vm.userFavor);
             }
         };
+
+        vm.refreshFavors = function () {
+            if (vm.category.id) {
+                vm.favors = Favor.query({categoryId: vm.category.id})
+            }
+        };
     })
     .factory('Category', function ($resource) {
         return $resource('/category', {});

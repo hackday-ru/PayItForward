@@ -26,4 +26,9 @@ class FavorController {
     def list() {
         favorRepository.findAll()
     }
+
+    @RequestMapping(method = RequestMethod.GET, params = 'categoryId')
+    def list(@RequestParam String categoryId) {
+        favorRepository.findByCategoryId(categoryId)
+    }
 }

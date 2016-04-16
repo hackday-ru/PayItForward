@@ -1,7 +1,6 @@
 <div class="panel" style="width: 600px">
     <br/>
     <br/>
-    {{addFavorCtrl.userFavor}}
     <form name="form" role="form" class="form-horizontal" novalidate>
         <div class="form-group">
             <label for="category" class="col-sm-2 control-label">Category</label>
@@ -10,7 +9,7 @@
                         class="form-control"
                         ng-model="addFavorCtrl.category"
                         ng-options="category as category.name for category in addFavorCtrl.categories"
-                        required>
+                        ng-change="addFavorCtrl.refreshFavors()">
                 </select>
             </div>
         </div>
