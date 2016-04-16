@@ -4,7 +4,7 @@ angular.module('payForwardApp', ['ngRoute', 'ngMaterial', 'payForward.user', 'pa
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'deals.html',
+                templateUrl: 'views/deals.html',
                 controller: 'DealCtrl'
             })
             .otherwise({redirectTo: '/error'});
