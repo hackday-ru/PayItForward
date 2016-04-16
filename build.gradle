@@ -36,7 +36,6 @@ dependencies {
 
     compile 'org.webjars:jquery:2.2.3'
     compile 'org.webjars:bootstrap:3.3.6'
-    compile 'org.webjars:angular-material:1.0.7'
     compile 'org.webjars:angularjs:1.5.3'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'

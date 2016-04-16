@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('payForwardApp', ['ngRoute', 'ngMaterial', 'payForward.user', 'payForward.deal', 'payForward.favor'])
+angular.module('payForwardApp', ['ngRoute', 'payForward.user', 'payForward.deal', 'payForward.favor'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/', {
