@@ -14,8 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.css"/>
-    <link rel="stylesheet" href="/webjars/angular-material/1.0.7/angular-material.css"/>
-    <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/app.css">
     <link rel="stylesheet" href="styles/prettyPhoto.css">
     <link rel="stylesheet" href="styles/hoverex-all.css">
@@ -23,25 +21,24 @@
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link rel="icon" href="img/favicon.png" type="image/x-icon">
 
-    <script type="text/javascript" src="/webjars/jquery/2.2.3/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/angularjs/1.5.3/angular.min.js"></script>
-    <script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-animate.min.js"></script>
-    <script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-route.min.js"></script>
-    <script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-resource.min.js"></script>
-    <script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-aria.min.js"></script>
-    <script type="text/javascript" src="/webjars/angular-material/1.0.7/angular-material.js"></script>
-
-    <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/deal.js"></script>
-    <script type="text/javascript" src="js/user.js"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/retina-1.1.0.js"></script>
     <script src="js/jquery.hoverdir.js"></script>
     <script src="js/jquery.hoverex.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/custom.js"></script>
+
+    <!--<script type="text/javascript" src="/webjars/jquery/2.2.3/jquery.min.js"></script>-->
+    <script type="text/javascript" src="/webjars/angularjs/1.5.3/angular.min.js"></script>
+    <script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-route.min.js"></script>
+    <script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-aria.min.js"></script>
+
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/deal.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
+    <script type="text/javascript" src="js/favor.js"></script>
 </head>
 
 <body>
@@ -49,31 +46,49 @@
     <div ng-controller="MenuCtrl" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#/profile" ng-click="selectMenu('profile')">MoryXory</a>
+                <a class="navbar-brand" href="#" ng-click="selectMenu('profile')">MoryXory</a>
             </div>
             <div class="navbar-collapse collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li><a href="" data-ng-click ="selectMenu('profile')">PROFILE</a></li>
-                    <li><a href="" data-ng-click ="selectMenu('deals')">DEALS</a></li>
-                    <li><a href="" data-ng-click ="selectMenu('favors')">MY FAVORS</a></li>
-                    <li><a href="" data-ng-click ="selectMenu('getFavors')">GET FAVORS</a></li>
-                    <li><a href="" data-ng-click ="selectMenu('giveFavors')">GIVE FAVORS</a></li>
+                    <li><a href="" data-ng-click="selectMenu('profile')">PROFILE</a></li>
+                    <li><a href="" data-ng-click="selectMenu('deals')">DEALS</a></li>
+                    <li><a href="" data-ng-click="selectMenu('favors')">MY FAVORS</a></li>
+                    <li><a href="" data-ng-click="selectMenu('getFavors')">GET FAVORS</a></li>
+                    <li><a href="" data-ng-click="selectMenu('giveFavors')">GIVE FAVORS</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
     </div>
 
-
-<div class="container">
-    <div ng-view />
+    <div class="container">
+        <div ng-view/>
+    </div>
 </div>
+<!-- *****************************************************************************************************************
+ FOOTER
+ ***************************************************************************************************************** -->
+<div id="footerwrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h4>About</h4>
+                <div class="hline-w"></div>
+                <p>Something about the application...</p>
+            </div>
 
-<script type="text/javascript" src="/webjars/jquery/2.2.3/jquery.min.js"></script>
-<script type="text/javascript" src="/webjars/angularjs/1.5.3/angular.min.js"></script>
-<script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-animate.min.js"></script>
-<script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-route.min.js"></script>
-<script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-resource.min.js"></script>
-<script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-aria.min.js"></script>
+            <div class="col-lg-6">
+                <h4>Contacts</h4>
+                <div class="hline-w"></div>
+                <p>
+                    Our contacts...
+                </p>
+            </div>
+        </div>
+        <! --/row -->
+    </div>
+    <! --/container -->
+</div>
+<! --/footerwrap -->
 
 <script type="text/javascript" src="/lib/ui-bootstrap-tpls-0.14.3.js"></script>
 

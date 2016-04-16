@@ -313,7 +313,7 @@ a:focus {
 /* General Tweaks */
 
 #blue {
-    background: #00b3fe;
+    background: white;
     margin-top: 60px;
     margin-bottom: 60px;
     padding-top: 25px;
@@ -321,7 +321,7 @@ a:focus {
 }
 
 #blue h3 {
-    color: white;
+    color: black;
     margin-left: 15px;
 }
 
