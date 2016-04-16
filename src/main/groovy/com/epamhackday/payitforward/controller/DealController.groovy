@@ -1,14 +1,13 @@
 package com.epamhackday.payitforward.controller
 
-import com.epamhackday.payitforward.model.*
+import com.epamhackday.payitforward.model.Deal
+import com.epamhackday.payitforward.model.Status
 import com.epamhackday.payitforward.repository.DealRepository
 import groovy.json.JsonBuilder
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
-
-import java.time.ZonedDateTime
 
 @Controller
 @RequestMapping("/deal")
