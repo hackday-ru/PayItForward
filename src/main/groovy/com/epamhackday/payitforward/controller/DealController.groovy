@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*
  * Created by bu3apd on 4/16/2016.
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/deal")
 class DealController {
 
     @Autowired

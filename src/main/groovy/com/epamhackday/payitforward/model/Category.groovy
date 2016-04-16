@@ -17,6 +17,6 @@ class Category {
 
     @Id
     String name
-    Category parent
+    String parent
 
 }
