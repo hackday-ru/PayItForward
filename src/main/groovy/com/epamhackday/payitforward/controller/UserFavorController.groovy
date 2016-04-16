@@ -67,7 +67,7 @@ class UserFavorController {
     @RequestMapping(value = "/category/{categoryName}/{favorType}", method = RequestMethod.GET)
     @ResponseBody
     def favorsByCategoryAndType(@PathVariable String category,
-                                   @PathVariable FavorType favorType) {
+                                @PathVariable FavorType favorType) {
         def userFavors = userFavorRepository.findByType(favorType)
         userFavors.findAll { userFavor -> userFavor.favor.category.name == category }
                 .collect { userFavor -> userFavor.favor }.toSet()

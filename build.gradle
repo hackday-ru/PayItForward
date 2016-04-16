@@ -37,6 +37,7 @@ dependencies {
     compile 'org.webjars:jquery:2.2.3'
     compile 'org.webjars:bootstrap:3.3.6'
     compile 'org.webjars:angularjs:1.5.3'
+    compile 'org.webjars:angular-ui-bootstrap:1.2.5'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile group: 'junit', name: 'junit', version: '4.11'
