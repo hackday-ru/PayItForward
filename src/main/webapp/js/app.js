@@ -14,7 +14,7 @@ angular.module('payForwardApp', ['ngRoute', 'ngMaterial', 'payForward.user', 'pa
 function MenuController($scope, $location) {
     $scope.selectedMenu = 0;
 
-    $scope.selectMenu = function(tabName) {
+    $scope.selectMenu = function (tabName) {
         $location.url('/' + tabName);
     }
 }
