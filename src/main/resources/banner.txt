@@ -1,0 +1,25 @@
+                                                                                                                                                                          
+                                                                                                                                                                          
+MMMMMMMM               MMMMMMMM                                                           XXXXXXX       XXXXXXX                                                           
+M:::::::M             M:::::::M                                                           X:::::X       X:::::X                                                           
+M::::::::M           M::::::::M                                                           X:::::X       X:::::X                                                           
+M:::::::::M         M:::::::::M                                                           X::::::X     X::::::X                                                           
+M::::::::::M       M::::::::::M   ooooooooooo   rrrrr   rrrrrrrrryyyyyyy           yyyyyyyXXX:::::X   X:::::XXX   ooooooooooo   rrrrr   rrrrrrrrryyyyyyy           yyyyyyy
+M:::::::::::M     M:::::::::::M oo:::::::::::oo r::::rrr:::::::::ry:::::y         y:::::y    X:::::X X:::::X    oo:::::::::::oo r::::rrr:::::::::ry:::::y         y:::::y 
+M:::::::M::::M   M::::M:::::::Mo:::::::::::::::or:::::::::::::::::ry:::::y       y:::::y      X:::::X:::::X    o:::::::::::::::or:::::::::::::::::ry:::::y       y:::::y  
+M::::::M M::::M M::::M M::::::Mo:::::ooooo:::::orr::::::rrrrr::::::ry:::::y     y:::::y        X:::::::::X     o:::::ooooo:::::orr::::::rrrrr::::::ry:::::y     y:::::y   
+M::::::M  M::::M::::M  M::::::Mo::::o     o::::o r:::::r     r:::::r y:::::y   y:::::y         X:::::::::X     o::::o     o::::o r:::::r     r:::::r y:::::y   y:::::y    
+M::::::M   M:::::::M   M::::::Mo::::o     o::::o r:::::r     rrrrrrr  y:::::y y:::::y         X:::::X:::::X    o::::o     o::::o r:::::r     rrrrrrr  y:::::y y:::::y     
+M::::::M    M:::::M    M::::::Mo::::o     o::::o r:::::r               y:::::y:::::y         X:::::X X:::::X   o::::o     o::::o r:::::r               y:::::y:::::y      
+M::::::M     MMMMM     M::::::Mo::::o     o::::o r:::::r                y:::::::::y       XXX:::::X   X:::::XXXo::::o     o::::o r:::::r                y:::::::::y       
+M::::::M               M::::::Mo:::::ooooo:::::o r:::::r                 y:::::::y        X::::::X     X::::::Xo:::::ooooo:::::o r:::::r                 y:::::::y        
+M::::::M               M::::::Mo:::::::::::::::o r:::::r                  y:::::y         X:::::X       X:::::Xo:::::::::::::::o r:::::r                  y:::::y         
+M::::::M               M::::::M oo:::::::::::oo  r:::::r                 y:::::y          X:::::X       X:::::X oo:::::::::::oo  r:::::r                 y:::::y          
+MMMMMMMM               MMMMMMMM   ooooooooooo    rrrrrrr                y:::::y           XXXXXXX       XXXXXXX   ooooooooooo    rrrrrrr                y:::::y           
+                                                                       y:::::y                                                                         y:::::y            
+                                                                      y:::::y                                                                         y:::::y             
+                                                                     y:::::y                                                                         y:::::y              
+                                                                    y:::::y                                                                         y:::::y               
+                                                                   yyyyyyy                                                                         yyyyyyy                
+                                                                                                                                                                          
+                                                                                                                                                                          
