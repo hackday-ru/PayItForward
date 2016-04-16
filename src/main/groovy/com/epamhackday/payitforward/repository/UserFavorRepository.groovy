@@ -7,5 +7,6 @@ import org.springframework.data.mongodb.repository.MongoRepository
 
 
 interface UserFavorRepository extends MongoRepository<UserFavor, Long> {
-    public List<UserFavor> findByUserIdAndType(Long userId, Type type)
+    public List<UserFavor> findByUserEmailAndType(String userEmail, Type type)
+    public List<UserFavor> findByFavorIdAndType(Long favorId, Type type)
 }
