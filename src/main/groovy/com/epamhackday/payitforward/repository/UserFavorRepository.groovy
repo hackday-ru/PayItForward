@@ -8,4 +8,6 @@ interface UserFavorRepository extends MongoRepository<UserFavor, Long> {
     List<UserFavor> findByUserEmailAndType(String userEmail, FavorType type)
 
     List<UserFavor> findByFavorIdAndType(Long favorId, FavorType type)
+
+    List<UserFavor> findByType(FavorType type)
 }

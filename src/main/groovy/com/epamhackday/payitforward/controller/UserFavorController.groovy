@@ -1,8 +1,9 @@
 package com.epamhackday.payitforward.controller
 
-import com.epamhackday.payitforward.model.User
+import com.epamhackday.payitforward.model.FavorType
 import com.epamhackday.payitforward.model.UserFavor
 import com.epamhackday.payitforward.repository.UserFavorRepository
+import com.epamhackday.payitforward.util.FavorGenerator
 import groovy.json.JsonBuilder
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -12,21 +13,28 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
 
-/**
- * Created by bu3apd on 4/16/2016.
- */
+import javax.annotation.PostConstruct
+
 @Controller
 @RequestMapping("/userfavor")
 class UserFavorController {
 
     @Autowired
-    UserFavorRepository userFavorRepository
+    private UserFavorRepository userFavorRepository
+
+    @Autowired
+    private FavorGenerator favorGenerator
+
+    @PostConstruct
+    void init() {
+        favorGenerator.createUserFavors()
+    }
 
     @RequestMapping(method = RequestMethod.DELETE, produces = "application/json")
     @ResponseBody
     String delete(@RequestBody UserFavor userFavor) {
         def jsonBuilder = new JsonBuilder(userFavorRepository.delete(userFavor.id));
-        return "UserFavor with id " + user.email + " successfully deleted";
+        return "UserFavor with id " + userFavor.user.email + " successfully deleted";
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
@@ -50,5 +58,23 @@ class UserFavorController {
         return jsonBuilder.toPrettyString()
     }
 
+    @RequestMapping(value = "/type/{favorType}", method = RequestMethod.GET,
+            produces = "application/json")
+    @ResponseBody
+    String categoriesByType(@PathVariable FavorType favorType) {
+        def userFavors = userFavorRepository.findByType(favorType)
+        def categories = userFavors.collect { userFavor -> userFavor.favor.category }.toSet()
+        new JsonBuilder(categories).toPrettyString()
+    }
 
+    @RequestMapping(value = "/category/{categoryName}/{favorType}", method = RequestMethod.GET,
+            produces = "application/json")
+    @ResponseBody
+    String favorsByCategoryAndType(@PathVariable String category,
+                                   @PathVariable FavorType favorType) {
+        def userFavors = userFavorRepository.findByType(favorType)
+        def favors = userFavors.findAll { userFavor -> userFavor.favor.category.name == category }
+                .collect { userFavor -> userFavor.favor }.toSet()
+        new JsonBuilder(favors).toPrettyString()
+    }
 }
