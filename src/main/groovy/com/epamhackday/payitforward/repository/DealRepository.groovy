@@ -1,6 +1,6 @@
 package com.epamhackday.payitforward.repository
 
 
-interface DealRepository {
+interface DealRepository extends MongoRepository<Deal, Long> {
 
 }
