@@ -1,5 +1,6 @@
 package com.epamhackday.payitforward.model
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import groovy.transform.Canonical
 import groovy.transform.ToString
 import org.springframework.data.annotation.Id
@@ -13,5 +14,6 @@ class User {
     String id
     String name
     String email
+    @JsonIgnore
     String password
 }
