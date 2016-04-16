@@ -1,33 +1,35 @@
 'use strict';
 
 angular.module('payForward.search', ['ngRoute', 'ngResource', 'ui.bootstrap'])
-    .controller('SearchCtrl', function ($scope, SearchService) {
+    .controller('SearchCtrl', function (SearchService) {
+        var vm = this;
+
         SearchService.getCategoriesByType({favorType: 'CAN'}, {},
             function(data) {
                 console.log(data);
-                $scope.categoriesCan = data;
-                if ($scope.categoriesCan && $scope.categoriesCan.length > 0) {
-                    $scope.selectCan($scope.categoriesCan[0].name);
+                vm.categoriesCan = data;
+                if (vm.categoriesCan && vm.categoriesCan.length > 0) {
+                    vm.selectCan(vm.categoriesCan[0].name);
                 }
             });
         SearchService.getCategoriesByType({favorType: 'WANT'}, {},
             function(data) {
                 console.log(data);
-                $scope.categoriesGet = data;
+                vm.categoriesGet = data;
             });
 
-        $scope.selectCan = function (category) {
+        vm.selectCan = function (category) {
             SearchService.getFavorsByCategory(
                 {favorType: 'CAN', category: category}, {}, function(data) {
-                    $scope.favorsCan = data;
+                    vm.favorsCan = data;
                 }
             )
         };
 
-        $scope.selectGet = function (category) {
+        vm.selectGet = function (category) {
             SearchService.getFavorsByCategory(
                 {favorType: 'WANT', category: category}, {}, function(data) {
-                    $scope.favorsGet = data;
+                    vm.favorsGet = data;
                 }
             )
         };

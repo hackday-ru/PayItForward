@@ -4,10 +4,10 @@
         <div class="col-sm-4">
             <uib-tabset active="active" vertical="true">
                 <uib-tab index="$index + 1"
-                         ng-repeat="category in categoriesCan"
+                         ng-repeat="category in searchCtrl.categoriesCan"
                          heading="{{category.name}}">
                     <ul>
-                        <li ng-repeat="favor in favorsCan">
+                        <li ng-repeat="favor in searchCtrl.favorsCan">
                             {{favor.name}}
                         </li>
                     </ul>
@@ -21,10 +21,10 @@
         <div class="col-sm-4">
             <uib-tabset active="active" vertical="true">
                 <uib-tab index="$index + 1"
-                         ng-repeat="category in categoriesGet"
+                         ng-repeat="category in searchCtrl.categoriesGet"
                          heading="{{category.name}}">
                     <ul>
-                        <li ng-repeat="favor in favorsGet">
+                        <li ng-repeat="favor in searchCtrl.favorsGet">
                             {{favor.name}}
                         </li>
                     </ul>
