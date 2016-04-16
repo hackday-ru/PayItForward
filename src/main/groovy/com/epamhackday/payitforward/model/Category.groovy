@@ -16,7 +16,6 @@ class Category {
     public static final String COLLECTION_NAME = "category";
 
     @Id
-    Long id
     String name
     Category parent
 

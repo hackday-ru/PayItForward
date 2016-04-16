@@ -17,7 +17,7 @@ class UserFavor {
     public static final String COLLECTION_NAME = "userfavor";
 
     @Id
-    long id
+    Long id
     User user
     Favor favor
     String description

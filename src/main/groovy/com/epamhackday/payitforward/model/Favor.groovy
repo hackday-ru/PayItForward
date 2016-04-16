@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Canonical
 @Document(collection = Favor.COLLECTION_NAME)
 class Favor {
+
     public static final String COLLECTION_NAME = "favor";
 
     @Id
