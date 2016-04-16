@@ -25,9 +25,9 @@ repositories {
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.4.6'
 
-    compile "org.springframework.boot:spring-boot-starter"
-    compile "org.springframework.boot:spring-boot-starter-web"
-    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+    compile 'org.springframework.boot:spring-boot-starter'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
     compile 'org.springframework.boot:spring-boot-devtools'
     compile 'org.springframework.data:spring-data-commons:1.12.1.RELEASE'
     compile 'org.springframework.data:spring-data-mongodb:1.9.1.RELEASE'
@@ -39,7 +39,7 @@ dependencies {
     compile 'org.webjars:angular-material:1.0.7'
     compile 'org.webjars:angularjs:1.5.3'
 
-    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 

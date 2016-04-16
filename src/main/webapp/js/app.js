@@ -1,11 +1,15 @@
 'use strict';
 
-angular.module('payForwardApp', ['ngRoute', 'ngMaterial', 'payForward.user', 'payForward.deal'])
+angular.module('payForwardApp', ['ngRoute', 'ngMaterial', 'payForward.user', 'payForward.deal', 'payForward.favor'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/deals.html',
                 controller: 'DealCtrl'
+            })
+            .when('/add-my-favor', {
+                templateUrl: 'views/add-my-favor.html',
+                controller: 'AddMyFavorCtrl'
             })
             .otherwise({redirectTo: '/error'});
     }])
