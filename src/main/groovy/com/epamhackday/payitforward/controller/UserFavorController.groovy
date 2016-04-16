@@ -1,12 +1,15 @@
 package com.epamhackday.payitforward.controller
 
+import com.epamhackday.payitforward.model.FavorType
 import com.epamhackday.payitforward.model.User
 import com.epamhackday.payitforward.model.UserFavor
 import com.epamhackday.payitforward.model.request.AddUserFavor
 import com.epamhackday.payitforward.repository.UserFavorRepository
+import com.epamhackday.payitforward.util.FavorGenerator
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
+import javax.annotation.PostConstruct
 import javax.validation.Valid
 
 @RestController
@@ -14,7 +17,15 @@ import javax.validation.Valid
 class UserFavorController {
 
     @Autowired
-    UserFavorRepository userFavorRepository
+    private UserFavorRepository userFavorRepository
+
+    @Autowired
+    private FavorGenerator favorGenerator
+
+    @PostConstruct
+    void init() {
+        favorGenerator.createUserFavors()
+    }
 
     @RequestMapping(value = '/{id}', method = RequestMethod.DELETE)
     void delete(@PathVariable String id) {
@@ -44,5 +55,21 @@ class UserFavorController {
     def list() {
         // TODO user findByUser here
         userFavorRepository.findAll()
+    }
+
+    @RequestMapping(value = "/type/{favorType}", method = RequestMethod.GET)
+    @ResponseBody
+    def categoriesByType(@PathVariable FavorType favorType) {
+        def userFavors = userFavorRepository.findByType(favorType)
+        userFavors.collect { userFavor -> userFavor.favor.category }.toSet()
+    }
+
+    @RequestMapping(value = "/category/{categoryName}/{favorType}", method = RequestMethod.GET)
+    @ResponseBody
+    def favorsByCategoryAndType(@PathVariable String category,
+                                   @PathVariable FavorType favorType) {
+        def userFavors = userFavorRepository.findByType(favorType)
+        userFavors.findAll { userFavor -> userFavor.favor.category.name == category }
+                .collect { userFavor -> userFavor.favor }.toSet()
     }
 }

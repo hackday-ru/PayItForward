@@ -1,11 +1,16 @@
 'use strict';
 
-angular.module('payForwardApp', ['ngRoute', 'payForward.user', 'payForward.deal', 'payForward.favor'])
+angular.module('payForwardApp', ['ngRoute', 'payForward.user',
+        'payForward.deal', 'payForward.favor',  'payForward.search'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/deals.html',
                 controller: 'DealCtrl'
+            })
+            .when('/search', {
+                templateUrl: 'views/search.html',
+                controller: 'SearchCtrl'
             })
             .when('/add-new-favor', {
                 templateUrl: 'views/add-favor.html',

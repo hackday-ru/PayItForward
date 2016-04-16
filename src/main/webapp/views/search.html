@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<div>
+    <div class="row">
+        <div class="col-sm-4">
+            <uib-tabset active="active" vertical="true">
+                <uib-tab index="$index + 1"
+                         ng-repeat="category in categoriesCan"
+                         heading="{{category.name}}">
+                    <ul>
+                        <li ng-repeat="favor in favorsCan">
+                            {{favor.name}}
+                        </li>
+                    </ul>
+                </uib-tab>
+            </uib-tabset>
+            <br/>
+            <button type="button" class="btn btn-primary">
+                Подтверить
+            </button>
+        </div>
+        <div class="col-sm-4">
+            <uib-tabset active="active" vertical="true">
+                <uib-tab index="$index + 1"
+                         ng-repeat="category in categoriesGet"
+                         heading="{{category.name}}">
+                    <ul>
+                        <li ng-repeat="favor in favorsGet">
+                            {{favor.name}}
+                        </li>
+                    </ul>
+                </uib-tab>
+            </uib-tabset>
+            <br/>
+            <button type="button" class="btn btn-primary">
+                Снова подтвердить
+            </button>
+        </div>
+        <div class="col-sm-4">
+            На сравнение
+        </div>
+    </div>
+
+
+
+</div>
