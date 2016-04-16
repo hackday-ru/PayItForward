@@ -5,18 +5,12 @@ import groovy.transform.ToString
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
-/**
- * Created by bu3apd on 4/16/2016.
- */
 @ToString(includeNames = true)
 @Canonical
-@Document(collection = Category.COLLECTION_NAME)
+@Document
 class Category {
-
-    public static final String COLLECTION_NAME = "category";
-
     @Id
+    String id
     String name
     String parent
-
 }

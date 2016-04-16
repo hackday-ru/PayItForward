@@ -8,8 +8,9 @@ angular.module('payForwardApp', ['ngRoute', 'payForward.user', 'payForward.deal'
                 controller: 'DealCtrl'
             })
             .when('/add-my-favor', {
-                templateUrl: 'views/add-my-favor.html',
-                controller: 'AddMyFavorCtrl'
+                templateUrl: 'views/add-favor.html',
+                controller: 'AddFavorCtrl',
+                controllerAs: 'addFavorCtrl'
             })
             .otherwise({redirectTo: '/error'});
     }])

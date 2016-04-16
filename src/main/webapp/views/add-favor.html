@@ -1,0 +1,30 @@
+<div class="panel" style="width: 500px">
+    <br/>
+    <br/>
+    {{addFavorCtrl.userFavor}}
+    <form name="form" role="form" class="form-horizontal"
+          ng-submit="addFavorCtrl.save(form)" novalidate>
+        <div class="form-group">
+            <label for="category" class="col-sm-2 control-label">Category</label>
+            <div class="col-sm-10">
+                <select id="category" name="category"
+                        class="form-control"
+                        ng-model="addFavorCtrl.userFavor.category"
+                        ng-options="category as category.name for category in addFavorCtrl.categories"
+                        required>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="favor" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+                <select id="favor" name="category"
+                        class="form-control"
+                        ng-model="addFavorCtrl.userFavor.favor"
+                        ng-options="favor as favor.name for favor in addFavorCtrl.favors"
+                        required>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
