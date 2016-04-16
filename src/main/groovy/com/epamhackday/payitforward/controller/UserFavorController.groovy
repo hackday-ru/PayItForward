@@ -1,12 +1,15 @@
 package com.epamhackday.payitforward.controller
 
 import com.epamhackday.payitforward.model.FavorType
+import com.epamhackday.payitforward.model.User
 import com.epamhackday.payitforward.model.UserFavor
 import com.epamhackday.payitforward.model.request.AddUserFavor
 import com.epamhackday.payitforward.repository.UserFavorRepository
+import com.epamhackday.payitforward.util.FavorGenerator
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
+import javax.annotation.PostConstruct
 import javax.validation.Valid
 
 @RestController
