@@ -35,21 +35,20 @@
 
 <body>
 <div ng-app="payForwardApp">
-    <md-toolbar id="menu">
-        <div ng-controller="MenuCtrl">
-            <md-tabs selected="selectedMenu">
-                <md-tab on-select="selectMenu('main')">
-                    <md-tab-label>Main</md-tab-label>
-                </md-tab>
-                <md-tab on-select="selectMenu('product')">
-                    <md-tab-label>Products</md-tab-label>
-                </md-tab>
-                <md-tab on-select="selectMenu('deal')">
-                    <md-tab-label>Deals</md-tab-label>
-                </md-tab>
-            </md-tabs>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">MoryXory</a>
+            </div>
+            <div class="navbar-collapse collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">HOME</a></li>
+                    <li class="active"><a href="about.html">ABOUT</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
         </div>
-    </md-toolbar>
+    </div>
     <md-content id="content">
         <div ng-view>
         </div>
