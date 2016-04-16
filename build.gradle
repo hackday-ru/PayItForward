@@ -36,6 +36,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     //compile "org.springframework.boot:spring-boot-starter-data-mongodb:1.9.1.RELEASE"
     compile 'com.gmongo:gmongo:1.5'
+    compile 'org.webjars:angularjs:1.5.3'
 
     testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
     compile 'org.codehaus.groovy:groovy-all:2.4.6'
