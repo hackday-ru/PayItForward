@@ -11,16 +11,10 @@ buildscript {
 }
 
 group 'com.epamhackday.payitforward'
-version '1.0-SNAPSHOT'
 
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
-
-jar {
-    baseName = 'payitforward'
-    version = '0.0.1-SNAPSHOT'
-}
 
 sourceCompatibility = 1.8
 
@@ -54,6 +48,10 @@ idea {
         inheritOutputDirs = false
         outputDir = file("$buildDir/classes/main/")
     }
+}
+
+task stage {
+    dependsOn build
 }
 
 task wrapper(type: Wrapper) {
