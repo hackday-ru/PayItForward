@@ -1,0 +1,13 @@
+/build
+/bin/
+/.gradle
+/.settings
+/test-output
+/.classpath
+/.project
+/.springBeans
+*.iml
+/.groovy
+/.idea
+components
+/out
