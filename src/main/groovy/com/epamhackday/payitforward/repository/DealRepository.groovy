@@ -4,5 +4,5 @@ import com.epamhackday.payitforward.model.Deal
 import org.springframework.data.mongodb.repository.MongoRepository
 
 interface DealRepository extends MongoRepository<Deal, Long> {
-    List<Deal> findByUserEmail(String userEmail)
+    List<Deal> findByInitiatorUserEmail(String userEmail)
 }
