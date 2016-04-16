@@ -5,13 +5,10 @@ import com.epamhackday.payitforward.model.Status
 import com.epamhackday.payitforward.repository.DealRepository
 import groovy.json.JsonBuilder
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.ConfigurableApplicationContext
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 
-/**
- * Created by bu3apd on 4/16/2016.
- */
 @Controller
 @RequestMapping("/deal")
 class DealController {
@@ -19,8 +16,8 @@ class DealController {
     @Autowired
     DealRepository dealRepository
 
-    @Autowired
-    ConfigurableApplicationContext applicationContext
+    @Value('${test.user.name}')
+    String userName
 
     @RequestMapping(method = RequestMethod.DELETE, produces = "application/json")
     @ResponseBody
@@ -80,11 +77,11 @@ class DealController {
 
     private String updateDealStatus(long dealId, Status status) {
         def userName = getUserName()
-        def dealToReject = dealRepository.findOne(dealId)
-        if (userName.equals(dealToReject?.acceptor?.user?.name)) {
-            if (dealToReject.status == Status.PENDING) {
-                dealToReject.status = status
-                def jsonBuilder = new JsonBuilder(dealRepository.save(dealToReject))
+        def deal = dealRepository.findOne(dealId)
+        if (userName.equals(deal?.acceptor?.user?.name)) {
+            if (deal.status == Status.PENDING) {
+                deal.status = status
+                def jsonBuilder = new JsonBuilder(dealRepository.save(deal))
                 return jsonBuilder.toPrettyString()
             } else {
                 throw new IllegalStateException("Deal is not in pending state")
@@ -95,6 +92,6 @@ class DealController {
     }
 
     private String getUserName() {
-        return "test"
+        return userName
     }
 }
