@@ -77,4 +77,52 @@ class FavorGenerator {
         dealRepository.save(deals)
     }
 
+
+    void addDeals() {
+        def user = new User(name: 'Mike')
+        def user2 = new User(name: 'Анюта')
+
+        user = userRepository.findUserByName(user.name)
+        user2 = userRepository.findUserByName(user2.name)
+
+        def categories = [new Category(name: 'Еда'),
+                          new Category(name: 'Ремонт')]
+
+        categories = categories.collect { categoryRepository.save(it) }
+        def favors = [new Favor(name: 'Готовка', category: categories[0]),
+                      new Favor(name: 'Ремонт шкафа', category: categories[1])]
+
+        favors = favors.collect { favorRepository.save(it) }
+        def userFavors = [new UserFavor(user: user, favor: favors[0], type: FavorType.CAN),
+                          new UserFavor(user: user, favor: favors[1], type: FavorType.WANT),
+                          new UserFavor(user: user2, favor: favors[1], type: FavorType.CAN),
+                          new UserFavor(user: user2, favor: favors[0], type: FavorType.WANT)]
+
+        userFavors = userFavors.collect { userFavorRepository.save(it) }
+
+        def deals = [new Deal(initiator: userFavors[0], acceptor: userFavors[2], status: Status.PENDING),
+                     new Deal(initiator: userFavors[0], acceptor: userFavors[2], status: Status.PENDING),
+                     new Deal(initiator: userFavors[0], acceptor: userFavors[2], status: Status.PENDING),
+                     new Deal(initiator: userFavors[0], acceptor: userFavors[2], status: Status.PENDING),
+                     new Deal(initiator: userFavors[0], acceptor: userFavors[2], status: Status.PENDING),
+                     new Deal(initiator: userFavors[0], acceptor: userFavors[2], status: Status.PENDING),
+                     new Deal(initiator: userFavors[0], acceptor: userFavors[2], status: Status.PENDING),
+                     new Deal(initiator: userFavors[0], acceptor: userFavors[2], status: Status.PENDING),
+                     new Deal(initiator: userFavors[0], acceptor: userFavors[2], status: Status.PENDING),
+                     new Deal(initiator: userFavors[0], acceptor: userFavors[2], status: Status.PENDING),
+                     new Deal(initiator: userFavors[2], acceptor: userFavors[0], status: Status.REJECTED),
+                     new Deal(initiator: userFavors[2], acceptor: userFavors[0], status: Status.PENDING),
+                     new Deal(initiator: userFavors[2], acceptor: userFavors[0], status: Status.PENDING),
+                     new Deal(initiator: userFavors[2], acceptor: userFavors[0], status: Status.PENDING),
+                     new Deal(initiator: userFavors[2], acceptor: userFavors[0], status: Status.PENDING),
+                     new Deal(initiator: userFavors[2], acceptor: userFavors[0], status: Status.PENDING),
+                     new Deal(initiator: userFavors[2], acceptor: userFavors[0], status: Status.PENDING),
+                     new Deal(initiator: userFavors[2], acceptor: userFavors[0], status: Status.PENDING),
+                     new Deal(initiator: userFavors[2], acceptor: userFavors[0], status: Status.PENDING),
+                     new Deal(initiator: userFavors[2], acceptor: userFavors[0], status: Status.PENDING),
+                     new Deal(initiator: userFavors[2], acceptor: userFavors[0], status: Status.PENDING)]
+
+        dealRepository.save(deals)
+
+    }
 }
