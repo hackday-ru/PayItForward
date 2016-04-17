@@ -12,8 +12,13 @@ angular.module('payForward.user', ['ngRoute', 'ngResource'])
         vm.getServiceInfo = function () {
 
         }
+
+
     })
     .factory('User', function ($resource) {
         return $resource('/user/current', {});
+    })
+    .factory('UserCan', function ($resource) {
+        return $resource('/user/favor/:favorType');
     });
 
