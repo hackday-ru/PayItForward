@@ -1,40 +1,33 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-    <!--<meta charset="UTF-8">-->
-    <!--<title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
 <div>
-<ul class="nav nav-pills" role="tablist">
-    <li role="presentation"><a href="" ng-click="go('/')">Home</a></li>
-    <li role="presentation"><a href="" ng-click="go('/add-my-favor')">Add new favor</a></li>
-    <li role="presentation"><a href="" ng-click="go('/addTask')">Get a favor</a></li>
-    <li role="presentation"><a href="" ng-click="go('/giveFavor')">Give a favor</a></li>
-</ul>
+    <div class="container mtb">
+    <ul class="nav nav-pills" role="tablist">
+        <li role="presentation"><a href="" ng-click="go('/')">Home</a></li>
+        <li role="presentation"><a href="" ng-click="go('/add-my-favor')">Add new favor</a></li>
+        <li role="presentation"><a href="" ng-click="go('/addTask')">Get a favor</a></li>
+        <li role="presentation"><a href="" ng-click="go('/giveFavor')">Give a favor</a></li>
+    </ul>
 
 
-<div class="col-lg-6">
+    <div class="col-lg-6">
 
-    <div class="list-group">
-        <li class="list-group-item list-group-item-info"><center>I CAN</center></li>
-        <button ng-repeat="task in tasks" type="button" class="list-group-item">
-            <!--<input type="checkbox" name="my-checkbox" data-size="mini" checked>-->
-            {{userCan.favor.name}}
-        </button>
+        <div class="list-group">
+            <li class="list-group-item list-group-item-info"><center>I CAN</center></li>
+            <button ng-repeat="task in tasks" type="button" class="list-group-item">
+                <!--<input type="checkbox" name="my-checkbox" data-size="mini" checked>-->
+                {{userCan.favor.name}}
+            </button>
+        </div>
+    </div><!-- /.col-lg-6 -->
+    <div class="col-lg-6">
+
+        <div class="list-group">
+            <li class="list-group-item list-group-item-success"><center>I WANT</center></li>
+            <button ng-repeat="task in tasks" type="button" class="list-group-item">
+                <!--<input type="checkbox" name="my-checkbox" data-size="mini" checked>-->
+                {{userWant.favor.name}}
+            </button>
+        </div>
+    </div><!-- /.col-lg-6 -->
+
     </div>
-</div><!-- /.col-lg-6 -->
-<div class="col-lg-6">
-
-    <div class="list-group">
-        <li class="list-group-item list-group-item-success"><center>I WANT</center></li>
-        <button ng-repeat="task in tasks" type="button" class="list-group-item">
-            <!--<input type="checkbox" name="my-checkbox" data-size="mini" checked>-->
-            {{userWant.favor.name}}
-        </button>
-    </div>
-</div><!-- /.col-lg-6 -->
-
 </div>
-    <!--</body>-->
-<!--</html>-->
