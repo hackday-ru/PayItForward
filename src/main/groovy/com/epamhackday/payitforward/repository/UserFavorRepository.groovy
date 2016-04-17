@@ -10,7 +10,6 @@ interface UserFavorRepository extends MongoRepository<UserFavor, String> {
 
     List<UserFavor> findByUserAndType(User user, FavorType type)
 
-    List<UserFavor> findByFavorIdAndType(Long favorId, FavorType type)
-
+    List<UserFavor> findByFavorIdAndType(String favorId, FavorType type)
     List<UserFavor> findByType(FavorType type)
 }

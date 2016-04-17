@@ -35,13 +35,30 @@
                 </uib-tab>
             </uib-tabset>
             <br/>
-            <button type="button" class="btn btn-primary" ng-click="searchCtrl.compareFavors()">
+            <button type="button" class="btn btn-default"
+                    ng-click="searchCtrl.compareFavors()">
                 Compare
             </button>
         </div>
         <div class="col-sm-4" ng-show="searchCtrl.showComparison">
-            На сравнение
+            Comparison
+            <div class="panel row"
+                 ng-repeat="userFavor in searchCtrl.users"
+                 style="border: outset">
+                <div class="col-xs-6 col-sm-4">
+                    <img class="img-responsive" src="img/0000001460.jpg" alt="">
+                </div>
+                <div class="col-xs-6 col-sm-8">
+                    <p>{{userFavor.user.name}}</p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </div>
+                <div class="row">
+                    <span>{{userFavor.can.name}}</span>
+                    <span>{{userFavor.want.name}}</span>
+                </div>
+            </div>
         </div>
     </div>
-    <br/>
+
+
 </div>

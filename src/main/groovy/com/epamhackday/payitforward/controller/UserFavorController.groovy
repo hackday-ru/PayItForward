@@ -54,11 +54,11 @@ class UserFavorController {
 //        return jsonBuilder.toPrettyString()
 //    }
 
-    @RequestMapping(method = RequestMethod.GET)
-    def list() {
-        // TODO user findByUser here
-        userFavorRepository.findAll()
-    }
+//    @RequestMapping(method = RequestMethod.GET)
+//    def list() {
+//        // TODO user findByUser here
+//        userFavorRepository.findAll()
+//    }
 
     @RequestMapping(value = "/type/{favorType}", method = RequestMethod.GET)
     @ResponseBody
@@ -70,7 +70,7 @@ class UserFavorController {
     @RequestMapping(value = "/category/{categoryId}/{favorType}", method = RequestMethod.GET)
     @ResponseBody
     def favorsByCategoryAndType(@PathVariable String categoryId,
-                                   @PathVariable FavorType favorType) {
+                                @PathVariable FavorType favorType) {
         def userFavors = userFavorRepository.findByType(favorType)
         userFavors.findAll { userFavor -> userFavor.favor.category.id == categoryId }
                 .collect { userFavor -> userFavor.favor }.toSet()
@@ -82,4 +82,21 @@ class UserFavorController {
         userFavorRepository.findByUserAndType(currentUser, favorType)
     }
 
+    @RequestMapping(method = RequestMethod.GET)
+    def usersByCanAndWantIds(@RequestParam String canFavorId, String[] wantFavorIds) {
+        final canUserFavors = userFavorRepository.findByFavorIdAndType(canFavorId, FavorType.CAN)
+        final wantUserFavorsByUserId = wantFavorIds.collect {
+            userFavorRepository.findByFavorIdAndType(it, FavorType.WANT)
+        }.flatten().groupBy { it.user.id }
+        final result = []
+        canUserFavors.each { canUserFavor ->
+            final wantUsersFavors = wantUserFavorsByUserId[canUserFavor.user.id]
+            if (wantUsersFavors) {
+                wantUsersFavors.each { wantUser ->
+                    result << [user: canUserFavor.user, can: canUserFavor.favor, want: wantUser.favor]
+                }
+            }
+        }
+        result
+    }
 }

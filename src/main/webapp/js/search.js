@@ -4,6 +4,8 @@ angular.module('payForward.search', ['ngRoute', 'ngResource', 'ui.bootstrap'])
     .controller('SearchCtrl', function (SearchService) {
         var vm = this;
 
+        vm.users = [];
+
         vm.showGetFavors = false;
         vm.showComparison = false;
 
@@ -48,8 +50,14 @@ angular.module('payForward.search', ['ngRoute', 'ngResource', 'ui.bootstrap'])
 
         vm.compareFavors = function() {
             vm.showComparison = true;
-        }
-
+            vm.wantFavorIds = ['5712de62148eaaa3ca564328', '5712de62148eaaa3ca56432a'];
+            if (vm.canFavorId && vm.wantFavorIds) {
+                vm.users = SearchService.getUsersByCansAndWants({
+                    canFavorId: vm.canFavorId,
+                    'wantFavorIds': vm.wantFavorIds
+                })
+            }
+        };
     })
     .service('SearchService', function ($resource) {
         return $resource('/user/favor/:id', {id: '@id'}, {
@@ -69,6 +77,11 @@ angular.module('payForward.search', ['ngRoute', 'ngResource', 'ui.bootstrap'])
                     categoryId: '@categoryId',
                     favorType: '@favorType'
                 }
+            },
+            getUsersByCansAndWants: {
+                method: 'GET',
+                url: '/user/favor',
+                isArray: true
             }
         });
     });
