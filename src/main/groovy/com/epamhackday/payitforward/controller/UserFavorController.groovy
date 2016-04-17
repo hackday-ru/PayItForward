@@ -27,7 +27,7 @@ class UserFavorController {
 
     @PostConstruct
     void init() {
-        //favorGenerator.createUserFavors()
+        //favorGenerator.createDeals()
     }
 
     @RequestMapping(value = '/{id}', method = RequestMethod.DELETE)

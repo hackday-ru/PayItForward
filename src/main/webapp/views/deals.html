@@ -8,6 +8,7 @@
 <h1>Deals</h1>
 <h2>Incoming deals</h2>
 <table class="table">
+    <thead>
     <tr>
         <td>
         <th>Who</th>
@@ -25,6 +26,8 @@
         <th>Actions</th>
         </td>
     </tr>
+    </thead>
+    <tbody>
     <tr ng-repeat="deal in incomingDeals">
         <td>{{deal.initiator.user.name}}</td>
         <td>{{deal.acceptor.favor.name}}</td>
@@ -38,9 +41,11 @@
         <td ng-if="deal.status != 'PENDING'">{{deal.status}}
         </td>
     </tr>
+    </tbody>
 </table>
 <h2>Outgoing deals</h2>
 <table class="table">
+    <thead>
     <tr>
         <td>
         <th>Who</th>
@@ -61,6 +66,8 @@
         <th>Status</th>
         </td>
     </tr>
+    </thead>
+    <tbody>
     <tr ng-repeat="deal in outgoingDeals">
         <td>{{deal.acceptor.user.name}}</td>
         <td>{{deal.acceptor.favor.name}}</td>
@@ -69,6 +76,7 @@
         <td>{{deal.date}}</td>
         <td>{{deal.status}}</td>
     </tr>
+    </tbody>
 </table>
 </body>
 </html>

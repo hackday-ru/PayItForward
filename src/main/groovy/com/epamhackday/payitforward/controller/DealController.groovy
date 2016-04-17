@@ -58,7 +58,8 @@ class DealController {
     @ResponseBody
     String getIncomingDeals() {
         def userId = getUserId()
-        def jsonBuilder = new JsonBuilder(dealRepository.findByAcceptorUserIdOrderByDate(userId))
+        def jsonBuilder = new JsonBuilder(dealRepository.findAll().findAll { userId.equals(it.acceptor?.user?.id) })
+        //def jsonBuilder = new JsonBuilder(dealRepository.findByAcceptorUserIdOrderByDate(userId))
         //def  jsonBuilder = new JsonBuilder(dealRepository.findAll())
         return jsonBuilder.toPrettyString()
     }
@@ -67,7 +68,8 @@ class DealController {
     @ResponseBody
     String getOutgoingDeals() {
         def userId = getUserId()
-        def jsonBuilder = new JsonBuilder(dealRepository.findByInitiatorUserIdOrderByDate(userId))
+        def jsonBuilder = new JsonBuilder(dealRepository.findAll().findAll { userId.equals(it.initiator?.user?.id) })
+        //def jsonBuilder = new JsonBuilder(dealRepository.findByInitiatorUserId(userId))
         //def  jsonBuilder = new JsonBuilder(dealRepository.findAll())
         return jsonBuilder.toPrettyString()
     }
