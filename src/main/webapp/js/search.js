@@ -25,6 +25,8 @@ angular.module('payForward.search', ['ngRoute', 'ngResource', 'ui.bootstrap'])
             });
 
         vm.selectCanCategory = function (category) {
+            vm.showGetFavors = false;
+            vm.showComparison = false;
             SearchService.getFavorsByCategory(
                 {favorType: 'CAN', categoryId: category.id}, {}, function(data) {
                     vm.favorsCan = data;
@@ -43,14 +45,23 @@ angular.module('payForward.search', ['ngRoute', 'ngResource', 'ui.bootstrap'])
         vm.selectGetCategory = function (category) {
             SearchService.getFavorsByCategory(
                 {favorType: 'WANT', categoryId: category.id}, {}, function(data) {
-                    vm.favorsGet = data;
+                    if (data) {
+                        vm.favorsGet = [];
+                        data.forEach(function(elem) {
+                            vm.favorsGet.push({isChecked: false, data: elem})
+                        });
+                    }
                 }
             )
         };
 
         vm.compareFavors = function() {
             vm.showComparison = true;
-            vm.wantFavorIds = ['5712de62148eaaa3ca564328', '5712de62148eaaa3ca56432a'];
+            vm.wantFavorIds = vm.favorsGet.filter(function (e) {
+                return e.isChecked;
+            }).map(function (e) {
+                return e.data.id;
+            });
             if (vm.canFavorId && vm.wantFavorIds) {
                 vm.users = SearchService.getUsersByCansAndWants({
                     canFavorId: vm.canFavorId,

@@ -28,8 +28,8 @@
                     </uib-tab-heading>
                     <div ng-repeat="favor in searchCtrl.favorsGet" class="checkbox">
                          <label>
-                             <input type="checkbox" value="">
-                             {{favor.name}}
+                             <input type="checkbox" ng-model="favor.isChecked">
+                             {{favor.data.name}}
                          </label>
                     </div>
                 </uib-tab>
