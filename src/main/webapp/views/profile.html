@@ -21,7 +21,10 @@
                             <div class="col-lg-3"><h4>DESCRIPTION</h4></div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-12">John Christopher "Johnny" Depp II (born June 9, 1963) is an American actor, producer, and musician. He has won the Golden Globe Award and Screen Actors Guild Award for Best Actor. He rose to prominence on the 1980s television series 21 Jump Street, becoming a teen idol. </p></div>
+                            <div class="col-lg-12">John Christopher "Johnny" Depp II (born June 9, 1963) is an American actor,
+                                producer, and musician. He has won the Golden Globe Award and Screen Actors Guild Award for Best
+                                Actor. He rose to prominence on the 1980s television series 21 Jump Street, becoming a teen
+                                idol. </p></div>
                         </div>
                     </div>
                 </div>
@@ -54,7 +57,7 @@
 
     <div class="container mtb" ng-init="userCtrl.getUserFavor()">
         <div class="row centered">
-            <h3 class="mb">SERVICES</h3>
+            <h3>SERVICES</h3>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div style="text-align: right; margin-right: 10px"><a href="#" ng-click="selectMenu('favors')"
@@ -65,8 +68,12 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">I CAN</h3>
                             </div>
-                            <div class="panel-body" style="overflow: auto; height: 300px" ng-repeat="can in userCtrl.userCan">
-                                <p>{{can.name}} - {{can.category.name}}</p>
+                            <div class="panel-body" style="overflow: auto; height: 300px">
+                                <ul class="list-group">
+                                    <li class="list-group-item" ng-repeat="can in userCtrl.userCan">{{can.favor.name}} -
+                                        {{can.favor.category.name}}
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -77,7 +84,11 @@
                                 <h3 class="panel-title">I WANT</h3>
                             </div>
                             <div class="panel-body" style="overflow: auto; height: 300px">
-
+                                <ul class="list-group">
+                                    <li class="list-group-item" ng-repeat="want in userCtrl.userWant">{{want.favor.name}} -
+                                        {{want.favor.category.name}}
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>

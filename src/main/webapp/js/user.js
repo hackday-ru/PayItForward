@@ -12,27 +12,15 @@ angular.module('payForward.user', ['ngRoute', 'ngResource'])
         }
 
         vm.getUserFavor = function () {
-            UserFavor.get({favorType: 'CAN'}, {}, function(data) {
-                vm.userCan = data;
-            });
-            UserFavor.get({favorType: 'WANT'}, {}, function(data) {
-                vm.userWant = data;
-            });
+            vm.userCan = UserFavor.query({favorType: 'CAN'});
+            vm.userWant = UserFavor.query({favorType: 'WANT'});
         }
-
 
     })
     .factory('User', function ($resource) {
         return $resource('/user/current', {});
     })
     .factory('UserFavor', function ($resource) {
-        return $resource('/user/favor/:favorType', {}, {
-            method: 'GET',
-            isArray: true,
-            url: '/user/favor/:favorType',
-            params: {
-                favorType: '@favorType'
-            }
-        });
+        return $resource('/user/favor/:favorType', {});
     });
 
