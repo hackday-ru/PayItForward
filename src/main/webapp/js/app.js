@@ -28,10 +28,6 @@ angular.module('payForwardApp', ['ngRoute', 'payForward.user',
                 controller: 'AddFavorCtrl',
                 controllerAs: 'addFavorCtrl'
             })
-            .when('/favors', {
-                templateUrl: 'views/favors.html',
-                controller: 'FavorCtrl'
-            })
             .when('/getFavors', {
                 templateUrl: 'views/getFavors.html',
                 controller: 'GetFavorsCtrl'
