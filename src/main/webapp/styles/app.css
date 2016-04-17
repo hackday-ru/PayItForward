@@ -75,6 +75,10 @@ a:focus {
     text-align: center
 }
 
+.right {
+    text-align: right;
+}
+
 .navbar {
     min-height: 70px;
     padding-top: 10px;
