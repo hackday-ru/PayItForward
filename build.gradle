@@ -43,6 +43,8 @@ dependencies {
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile 'org.apache.commons:commons-csv:1.1'
+    apply plugin: 'groovy'
 }
 
 idea {
