@@ -3,6 +3,7 @@ package com.epamhackday.payitforward.model
 import groovy.transform.Canonical
 import groovy.transform.ToString
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
 
 import java.time.ZonedDateTime
@@ -18,9 +19,13 @@ class Deal {
     public static final String COLLECTION_NAME = "deal";
 
     @Id
-    Long id
+    String id
+
+    @DBRef
     UserFavor initiator
+    @DBRef
     UserFavor acceptor
+
     Status status
     ZonedDateTime date
 }

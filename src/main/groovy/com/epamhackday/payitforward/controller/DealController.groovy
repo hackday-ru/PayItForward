@@ -3,6 +3,7 @@ package com.epamhackday.payitforward.controller
 import com.epamhackday.payitforward.model.Deal
 import com.epamhackday.payitforward.model.Status
 import com.epamhackday.payitforward.repository.DealRepository
+import com.epamhackday.payitforward.repository.UserRepository
 import groovy.json.JsonBuilder
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
@@ -18,6 +19,12 @@ class DealController {
 
     @Value('${test.user.name}')
     String userName
+
+    @Value('${test.user.id}')
+    String userId
+
+    @Autowired
+    UserRepository userRepository
 
     @RequestMapping(method = RequestMethod.DELETE, produces = "application/json")
     @ResponseBody
@@ -35,8 +42,8 @@ class DealController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    String get(@PathVariable Long id) {
-        def jsonBuilder = new JsonBuilder(dealRepository.findById(id));
+    String get(@PathVariable String id) {
+        def jsonBuilder = new JsonBuilder(dealRepository.findOne(id));
         return jsonBuilder.toPrettyString()
     }
 
@@ -50,35 +57,37 @@ class DealController {
     @RequestMapping(value = "/incoming", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     String getIncomingDeals() {
-        def userName = getUserName()
-        def jsonBuilder = new JsonBuilder(dealRepository.findByAcceptorUserNameOrderByDate(userName))
+        def userId = getUserId()
+        def jsonBuilder = new JsonBuilder(dealRepository.findByAcceptorUserIdOrderByDate(userId))
+        //def  jsonBuilder = new JsonBuilder(dealRepository.findAll())
         return jsonBuilder.toPrettyString()
     }
 
     @RequestMapping(value = "/outgoing", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     String getOutgoingDeals() {
-        def userName = getUserName()
-        def jsonBuilder = new JsonBuilder(dealRepository.findByInitiatorUserNameOrderByDate(userName))
+        def userId = getUserId()
+        def jsonBuilder = new JsonBuilder(dealRepository.findByInitiatorUserIdOrderByDate(userId))
+        //def  jsonBuilder = new JsonBuilder(dealRepository.findAll())
         return jsonBuilder.toPrettyString()
     }
 
     @RequestMapping(value = "/reject/{dealId}", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    String reject(@PathVariable Long dealId) {
+    String reject(@PathVariable String dealId) {
         return updateDealStatus(dealId, Status.REJECTED)
     }
 
     @RequestMapping(value = "/accept/{dealId}", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    String accept(@PathVariable Long dealId) {
+    String accept(@PathVariable String dealId) {
         return updateDealStatus(dealId, Status.ACCEPTED)
     }
 
-    private String updateDealStatus(long dealId, Status status) {
-        def userName = getUserName()
+    private String updateDealStatus(String dealId, Status status) {
+        def userId = getUserId()
         def deal = dealRepository.findOne(dealId)
-        if (userName.equals(deal?.acceptor?.user?.name)) {
+        if (userId.equals(deal?.acceptor?.user?.id)) {
             if (deal.status == Status.PENDING) {
                 deal.status = status
                 def jsonBuilder = new JsonBuilder(dealRepository.save(deal))
@@ -91,7 +100,7 @@ class DealController {
         }
     }
 
-    private String getUserName() {
-        return userName
+    private String getUserId() {
+        return userRepository.findUserByName(userName).id
     }
 }
