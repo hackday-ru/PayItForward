@@ -54,7 +54,7 @@ class RepositoriesIT {
                             csvRecord.get("email"),
                             csvRecord.get("password")))
         }
-        userRepository.insert(users);
+        users = userRepository.insert(users);
     }
 
     void insertCategories() {
@@ -65,41 +65,53 @@ class RepositoriesIT {
                             csvRecord.get("name"),
                             csvRecord.get("parent")))
         }
-        categoryRepository.insert(categories)
+        categories = categoryRepository.insert(categories)
     }
 
     void insertFavors() {
         CSVParser parser = loadFile(FAVORS_FILE)
         for (CSVRecord csvRecord : parser) {
             favors.add(
-                    new Favor()
+                    new Favor(csvRecord.get("id"),
+                            csvRecord.get("name"),
+                            categories.get(Integer.valueOf(csvRecord.get("category")))
+                    )
             )
-
         }
-        favorRepository.insert(favors)
+        favors = favorRepository.insert(favors)
     }
 
     void insertUserFavors() {
         CSVParser parser = loadFile(USER_FAVORS_FILE)
         for (CSVRecord csvRecord : parser) {
             userFavors.add(
-                    new UserFavor()
+                    new UserFavor(csvRecord.get("id"),
+                            users.get(Integer.valueOf(csvRecord.get("user"))),
+                            favors.get(Integer.valueOf(csvRecord.get("favor"))),
+                            csvRecord.get("description"),
+                            FavorType.valueOf(csvRecord.get("type")),
+                            Boolean.valueOf(csvRecord.get("deleted")))
             )
         }
-        userFavorRepository.insert(userFavors)
+        userFavors = userFavorRepository.insert(userFavors)
     }
 
     void insertDeals() {
         CSVParser parser = loadFile(DEALS_FILE)
         for (CSVRecord csvRecord : parser) {
             deals.add(
-                    new Deal()
+                    new Deal(csvRecord.get("id"),
+                            userFavors.get(Integer.valueOf(csvRecord.get("initiator"))),
+                            userFavors.get(Integer.valueOf(csvRecord.get("acceptor"))),
+                            Status.valueOf(csvRecord.get("status")),
+                            null
+                    )
             )
         }
-        dealRepository.insert(deals)
+        deals = dealRepository.insert(deals)
     }
 
-    CSVParser loadFile(String filename) {
+    static CSVParser loadFile(String filename) {
         File csvData = new File(filename)
         return CSVParser.parse(csvData, CSVFormat.EXCEL)
     }
