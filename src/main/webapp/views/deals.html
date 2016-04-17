@@ -25,7 +25,6 @@
         <td>{{deal.initiator.favor.description}}</td>
         <td ng-if="deal.status == 'PENDING'">
             <button id="acceptButton{{deal.id}}" class="btn" ng-click="acceptDeal(deal.id, $index)">Accept</button>
-            </br>
             <button id="rejectButton{{deal.id}}" class="btn" ng-click="rejectDeal(deal.id, $index)">Reject</button>
         </td>
         <td ng-if="deal.status != 'PENDING'">{{deal.status}}
