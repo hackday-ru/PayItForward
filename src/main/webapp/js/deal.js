@@ -8,10 +8,12 @@ angular.module('payForward.deal', ['ngRoute', 'ngResource','dealsServices'])
 
         $scope.acceptDeal = function(acceptedDealId){
             AcceptDeal.save({dealId:acceptedDealId});
+            $scope.incomingDeals = IncomingDeals.query();
         }
 
         $scope.rejectDeal = function(rejectedDealId){
             RejectDeal.save({dealId:rejectedDealId});
+            $scope.incomingDeals = IncomingDeals.query();
         }
 
         console.log($scope)
