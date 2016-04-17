@@ -23,6 +23,15 @@ angular.module('payForward.favor', ['ngRoute', 'ngResource'])
             }
         };
     })
+    .controller('FavorCtrl', function($scope, $location, FavorType) {
+
+        $scope.userCan = FavorType.query({favorType: 'CAN'});
+        $scope.userWant = FavorType.query({favorType: 'WANT'});
+
+        $scope.go = function(path) {
+            $location.url(path);
+        }
+    })
     .factory('Category', function ($resource) {
         return $resource('/category', {});
     })
@@ -31,4 +40,8 @@ angular.module('payForward.favor', ['ngRoute', 'ngResource'])
     })
     .factory('UserFavor', function ($resource) {
         return $resource('/user/favor', {});
+    })
+    .factory('FavorType', function ($resource) {
+        return $resource('/user/favor/:favorType', {});
     });
+

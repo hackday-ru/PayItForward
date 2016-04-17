@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.*
 import javax.annotation.PostConstruct
 import javax.validation.Valid
 
+/**
+ * Created by bu3apd on 4/16/2016.
+ */
 @RestController
-@RequestMapping('/user/favor')
+@RequestMapping("/user/favor")
 class UserFavorController {
 
     @Autowired
@@ -24,7 +27,7 @@ class UserFavorController {
 
     @PostConstruct
     void init() {
-        favorGenerator.createUserFavors()
+//        favorGenerator.createUserFavors()
     }
 
     @RequestMapping(value = '/{id}', method = RequestMethod.DELETE)
@@ -72,4 +75,11 @@ class UserFavorController {
         userFavors.findAll { userFavor -> userFavor.favor.category.name == category }
                 .collect { userFavor -> userFavor.favor }.toSet()
     }
+
+    @RequestMapping(value = "/{favorType}", method = RequestMethod.GET)
+    def favorsByUserAndType(@PathVariable FavorType favorType) {
+        final currentUser = new User(id: '57128f83e4b065a8c4d71236')
+        userFavorRepository.findByUserAndType(currentUser, favorType)
+    }
+
 }

@@ -17,7 +17,11 @@ angular.module('payForwardApp', ['ngRoute', 'payForward.user',
                 controller: 'SearchCtrl',
                 controllerAs: 'searchCtrl'
             })
-            .when('/add-new-favor', {
+            .when('/favor', {
+                templateUrl: 'views/favor.html',
+                controller: 'FavorCtrl'
+            })
+            .when('/add-my-favor', {
                 templateUrl: 'views/add-favor.html',
                 controller: 'AddFavorCtrl',
                 controllerAs: 'addFavorCtrl'
