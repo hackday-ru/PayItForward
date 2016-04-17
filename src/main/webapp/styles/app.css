@@ -22,6 +22,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
+.list-group-item {
+    margin-bottom: 2px;
+}
+
 p {
     padding: 0;
     margin-bottom: 12px;

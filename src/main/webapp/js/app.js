@@ -6,18 +6,24 @@ angular.module('payForwardApp', ['ngRoute', 'payForward.user',
         $routeProvider
             .when('/profile', {
                 templateUrl: 'views/profile.html',
-                controller: 'UserCtrl'
+                controller: 'UserCtrl',
+                controllerAs: 'userCtrl'
             })
             .when('/deals', {
                 templateUrl: 'views/deals.html',
-                controller: 'DealCtrl'
+                controller: 'DealCtrl',
+                controllerAs: 'dealCtrl'
             })
             .when('/search', {
                 templateUrl: 'views/search.html',
                 controller: 'SearchCtrl',
                 controllerAs: 'searchCtrl'
             })
-            .when('/add-new-favor', {
+            .when('/favor', {
+                templateUrl: 'views/favor.html',
+                controller: 'FavorCtrl'
+            })
+            .when('/add-my-favor', {
                 templateUrl: 'views/add-favor.html',
                 controller: 'AddFavorCtrl',
                 controllerAs: 'addFavorCtrl'

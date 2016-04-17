@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.css"/>
+    <!--<link rel="stylesheet" href="/webjars/bootstrap-switch/3.3.2/css/bootstrap-switch.css"/>-->
     <link rel="stylesheet" href="styles/app.css">
     <link rel="stylesheet" href="styles/prettyPhoto.css">
     <link rel="stylesheet" href="styles/hoverex-all.css">
@@ -34,6 +35,7 @@
     <script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-route.min.js"></script>
     <script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-resource.min.js"></script>
     <script type="text/javascript" src="/webjars/angularjs/1.5.3/angular-aria.min.js"></script>
+    <!--<script type="text/javascript" src="/webjars/bootstrap-switch/3.3.2/bootstrap-switch.js"></script>-->
 
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/deal.js"></script>
@@ -41,20 +43,24 @@
     <script type="text/javascript" src="js/favor.js"></script>
 </head>
 
+
 <body>
 <div ng-app="payForwardApp">
     <div ng-controller="MenuCtrl" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#" ng-click="selectMenu('profile')">MoryXory</a>
             </div>
             <div class="navbar-collapse collapse navbar-right">
                 <ul class="nav navbar-nav">
+
                     <li><a href="" data-ng-click="selectMenu('profile')">PROFILE</a></li>
                     <li><a href="" data-ng-click="selectMenu('deals')">DEALS</a></li>
-                    <li><a href="" data-ng-click="selectMenu('favors')">MY FAVORS</a></li>
+                    <li><a href="" data-ng-click="selectMenu('favor')">MY FAVORS</a></li>
                     <li><a href="" data-ng-click="selectMenu('getFavors')">GET FAVORS</a></li>
                     <li><a href="" data-ng-click="selectMenu('giveFavors')">GIVE FAVORS</a></li>
+
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -89,6 +95,7 @@
     <! --/container -->
 </div>
 <! --/footerwrap -->
+
 
 <script type="text/javascript" src="/lib/ui-bootstrap-tpls-0.14.3.js"></script>
 
