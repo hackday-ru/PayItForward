@@ -1,45 +1,47 @@
 <!DOCTYPE html>
-<div>
+<br/>
+<div class="panel panel-default">
     <div class="row">
         <div class="col-sm-4">
             <uib-tabset active="active" vertical="true">
-                <uib-tab index="$index + 1"
-                         ng-repeat="category in searchCtrl.categoriesCan"
-                         heading="{{category.name}}">
-                    <ul>
-                        <li ng-repeat="favor in searchCtrl.favorsCan">
+                <uib-tab index="$index + 1" ng-repeat="category in searchCtrl.categoriesCan">
+                    <uib-tab-heading ng-click="searchCtrl.selectCanCategory(category)">
+                        <span>{{category.name}}</span>
+                    </uib-tab-heading>
+                    <div ng-repeat="favor in searchCtrl.favorsCan" class="radio">
+                        <label>
+                            <input type="radio" name="optradio" ng-click="searchCtrl.selectCanFavor(favor)">
                             {{favor.name}}
-                        </li>
-                    </ul>
+                        </label>
+                    </div>
                 </uib-tab>
             </uib-tabset>
             <br/>
-            <button type="button" class="btn btn-primary">
-                Подтверить
-            </button>
+            <br/>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4" ng-show="searchCtrl.showGetFavors">
             <uib-tabset active="active" vertical="true">
                 <uib-tab index="$index + 1"
-                         ng-repeat="category in searchCtrl.categoriesGet"
-                         heading="{{category.name}}">
-                    <ul>
-                        <li ng-repeat="favor in searchCtrl.favorsGet">
-                            {{favor.name}}
-                        </li>
-                    </ul>
+                         ng-repeat="category in searchCtrl.categoriesGet">
+                    <uib-tab-heading ng-click="searchCtrl.selectGetCategory(category)">
+                        <span>{{category.name}}</span>
+                    </uib-tab-heading>
+                    <div ng-repeat="favor in searchCtrl.favorsGet" class="checkbox">
+                         <label>
+                             <input type="checkbox" value="">
+                             {{favor.name}}
+                         </label>
+                    </div>
                 </uib-tab>
             </uib-tabset>
             <br/>
-            <button type="button" class="btn btn-primary">
-                Снова подтвердить
+            <button type="button" class="btn btn-primary" ng-click="searchCtrl.compareFavors()">
+                Compare
             </button>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4" ng-show="searchCtrl.showComparison">
             На сравнение
         </div>
     </div>
-
-
-
+    <br/>
 </div>

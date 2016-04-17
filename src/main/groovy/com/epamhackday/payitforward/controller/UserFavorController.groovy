@@ -24,7 +24,7 @@ class UserFavorController {
 
     @PostConstruct
     void init() {
-        favorGenerator.createUserFavors()
+        //favorGenerator.createUserFavors()
     }
 
     @RequestMapping(value = '/{id}', method = RequestMethod.DELETE)
@@ -64,12 +64,12 @@ class UserFavorController {
         userFavors.collect { userFavor -> userFavor.favor.category }.toSet()
     }
 
-    @RequestMapping(value = "/category/{categoryName}/{favorType}", method = RequestMethod.GET)
+    @RequestMapping(value = "/category/{categoryId}/{favorType}", method = RequestMethod.GET)
     @ResponseBody
-    def favorsByCategoryAndType(@PathVariable String category,
-                                @PathVariable FavorType favorType) {
+    def favorsByCategoryAndType(@PathVariable String categoryId,
+                                   @PathVariable FavorType favorType) {
         def userFavors = userFavorRepository.findByType(favorType)
-        userFavors.findAll { userFavor -> userFavor.favor.category.name == category }
+        userFavors.findAll { userFavor -> userFavor.favor.category.id == categoryId }
                 .collect { userFavor -> userFavor.favor }.toSet()
     }
 }

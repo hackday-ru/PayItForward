@@ -14,6 +14,7 @@ body {
     color: #384452;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
+    padding-top: 70px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -377,4 +378,26 @@ a:focus {
 .share i {
     padding-right: 15px;
     font-size: 18px;
+}
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 2px 25px;
+}
+
+.nav-tabs {
+    float: left;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border: 0
+}
+
+.nav-tabs {
+    border-bottom: 0
+}
+
+.content-tabs {
+    float: left;
 }
