@@ -1,0 +1,6 @@
+id,user,favor,description,type,deleted
+1,2,2,,CAN,FALSE
+2,2,3,,CAN,FALSE
+3,3,7,,CAN,FALSE
+4,2,7,,WANT,FALSE
+5,3,2,,WANT,FALSE
