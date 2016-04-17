@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('payForward.user', ['ngRoute', 'ngResource'])
-    .controller('UserCtrl', function (User, UserFavor) {
+    .controller('UserCtrl', function (User, UserFavorService) {
         var vm = this;
         vm.currentUser = {};
         vm.userCan = {};
@@ -12,15 +12,30 @@ angular.module('payForward.user', ['ngRoute', 'ngResource'])
         }
 
         vm.getUserFavor = function () {
-            vm.userCan = UserFavor.query({favorType: 'CAN'});
-            vm.userWant = UserFavor.query({favorType: 'WANT'});
+            UserFavorService.getFavorUserByType({favorType: 'CAN'}, {}, function (data) {
+                vm.userCan = data;
+            });
+            UserFavorService.getFavorUserByType({favorType: 'WANT'}, {}, function (data) {
+                vm.userWant = data;
+            });
         }
 
     })
     .factory('User', function ($resource) {
         return $resource('/user/current', {});
     })
-    .factory('UserFavor', function ($resource) {
-        return $resource('/user/favor/:favorType', {});
+    .service('UserFavorService', function ($resource) {
+        return $resource('/user/favor/:favorType', {}, {
+            getFavorUserByType: {
+                method: 'GET',
+                isArray: true,
+                url: '/user/favor/:favorType',
+                params: {
+                    favorType: '@favorType'
+                }
+            }
+        });
     });
+
+
 
