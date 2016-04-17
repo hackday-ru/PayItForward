@@ -23,10 +23,19 @@ angular.module('payForward.favor', ['ngRoute', 'ngResource'])
             }
         };
     })
-    .controller('FavorCtrl', function($scope, $location, FavorType) {
+    .controller('FavorCtrl', function($scope, $location, UserFavorService) {
 
-        $scope.userCan = FavorType.query({favorType: 'CAN'});
-        $scope.userWant = FavorType.query({favorType: 'WANT'});
+         UserFavorService.getFavorByType({favorType: 'CAN'}, {},
+         function (data) {
+                         $scope.userCanList = data;
+                     });
+          UserFavorService.getFavorByType({favorType: 'WANT'}, {},
+          function (data) {
+                          $scope.userWantList = data;
+                      });
+
+//        $scope.userCan = FavorType.query({favorType: 'CAN'});
+//        $scope.userWant = FavorType.query({favorType: 'WANT'});
 
         $scope.go = function(path) {
             $location.url(path);
@@ -41,7 +50,19 @@ angular.module('payForward.favor', ['ngRoute', 'ngResource'])
     .factory('UserFavor', function ($resource) {
         return $resource('/user/favor', {});
     })
-    .factory('FavorType', function ($resource) {
-        return $resource('/user/favor/:favorType', {});
+    .service('UserFavorService', function ($resource) {
+        return $resource('/user/favor/:favorType', {}, {
+            getFavorByType: {
+                method: 'GET',
+                isArray: true,
+                url: '/user/favor/:favorType',
+                params: {
+                    favorType: '@favorType'
+                }
+            }
+        });
     });
+//    .factory('FavorType', function ($resource) {
+//        return $resource('/user/favor/:favorType', {});
+//    });
 

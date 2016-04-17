@@ -79,7 +79,8 @@ class UserFavorController {
 
     @RequestMapping(value = "/{favorType}", method = RequestMethod.GET)
     def favorsByUserAndType(@PathVariable FavorType favorType) {
-        final currentUser = new User(id: '57128f83e4b065a8c4d71236')
+//        final currentUser = new User(id: '57128f83e4b065a8c4d71236')
+        final currentUser = new User(id: '5712de61148eaaa3ca564321')
         userFavorRepository.findByUserAndType(currentUser, favorType)
     }
 
