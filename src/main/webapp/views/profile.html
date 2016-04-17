@@ -1,5 +1,4 @@
-<div>
-
+<div ng-init="userCtrl.getCurrentUser()">
     <div class="container mtb">
         <div class="row ">
             <div class="col-lg-12 centered"><h3>ABOUT ME</h3></div>
@@ -16,21 +15,13 @@
                             <!--<div class="col-lg-1"><a href="#" ng-click="selectMenu('profile')" class="btn">Edit</a></div>-->
                         </div>
                         <div class="row">
-                            <div class="col-lg-12">Johny</p></div>
+                            <div class="col-lg-12">{{userCtrl.currentUser.name}}</p></div>
                         </div>
                         <div class="row">
                             <div class="col-lg-3"><h4>DESCRIPTION</h4></div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-12">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has
-                                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                                of
-                                type and
-                                scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                                leap
-                                into
-                                electronic typesetting, remaining essentially unchanged. </p></div>
+                            <div class="col-lg-12">John Christopher "Johnny" Depp II (born June 9, 1963) is an American actor, producer, and musician. He has won the Golden Globe Award and Screen Actors Guild Award for Best Actor. He rose to prominence on the 1980s television series 21 Jump Street, becoming a teen idol. </p></div>
                         </div>
                     </div>
                 </div>

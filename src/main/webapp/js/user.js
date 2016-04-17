@@ -1,21 +1,19 @@
 'use strict';
 
-angular.module('payForward.user', ['ngRoute', 'ngResource', 'ngResource'])
-    .controller('UserCtrl', function ($scope, UserService) {
+angular.module('payForward.user', ['ngRoute', 'ngResource'])
+    .controller('UserCtrl', function (User) {
+        var vm = this;
+        vm.currentUser = {};
 
-
-        $scope.getCurrentUser = function() {
-            UserService.getCurrentUser(function(data) {
-                $scope.currentUser = data;
-            })
+        vm.getCurrentUser = function() {
+            vm.currentUser = User.get();
         }
 
+        vm.getServiceInfo = function () {
+
+        }
     })
-    .service('UserService', function ($resource) {
-        return $resource('/user/current', {
-            getCurrentUser: {
-                method: 'GET',
-                url: '/user/current'
-            }
-        })
+    .factory('User', function ($resource) {
+        return $resource('/user/current', {});
     });
+
