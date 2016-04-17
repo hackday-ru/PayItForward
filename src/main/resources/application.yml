@@ -1,4 +1,4 @@
 logging.level.com.epam: DEBUG
 spring.data.mongodb.uri: mongodb://payitforward:payitforward@ds013260.mlab.com:13260/payitforward
-test.user.name: Mike
-test.user.id: 57133a565473aec5fc7b09c0
+test.user.name: Yevheniya
+test.user.id: 2
