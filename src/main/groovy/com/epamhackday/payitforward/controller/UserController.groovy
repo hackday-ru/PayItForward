@@ -15,7 +15,7 @@ class UserController {
 
     @RequestMapping(value = "/current", method = RequestMethod.GET)
     def get() {
-        final currentUserId = '57128f83e4b065a8c4d71236'
+        final currentUserId = '2'
         userRepository.findOne(currentUserId)
     }
 }
