@@ -52,7 +52,7 @@
     </div>
     <! --/container -->
 
-    <div class="container mtb">
+    <div class="container mtb" ng-init="userCtrl.getUserFavor()">
         <div class="row centered">
             <h3 class="mb">SERVICES</h3>
             <div class="panel panel-default">
@@ -65,28 +65,8 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">I CAN</h3>
                             </div>
-                            <div class="panel-body" style="overflow: auto; height: 300px">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <div class="panel-body" style="overflow: auto; height: 300px" ng-repeat="can in userCtrl.userCan">
+                                <p>{{can.name}} - {{can.category.name}}</p>
                             </div>
                         </div>
                     </div>
@@ -97,9 +77,7 @@
                                 <h3 class="panel-title">I WANT</h3>
                             </div>
                             <div class="panel-body" style="overflow: auto; height: 300px">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
                             </div>
                         </div>
                     </div>
