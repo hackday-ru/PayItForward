@@ -176,8 +176,6 @@ a:focus {
 }
 
 .mtb {
-    margin-top: 80px;
-    margin-bottom: 80px;
 }
 
 .mb {
@@ -292,11 +290,8 @@ a:focus {
 
 
 #footerwrap {
-    padding-top: 60px;
-    padding-bottom: 60px;
     background: #384452;
 }
-
 
 #footerwrap p {
     color: #bfc9d3;
