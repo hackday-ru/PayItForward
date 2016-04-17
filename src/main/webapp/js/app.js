@@ -4,6 +4,11 @@ angular.module('payForwardApp', ['ngRoute', 'payForward.user',
         'payForward.deal', 'payForward.favor', 'payForward.search'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
+            .when('/', {
+                templateUrl: 'views/profile.html',
+                controller: 'UserCtrl',
+                controllerAs: 'userCtrl'
+            })
             .when('/profile', {
                 templateUrl: 'views/profile.html',
                 controller: 'UserCtrl',
@@ -28,13 +33,10 @@ angular.module('payForwardApp', ['ngRoute', 'payForward.user',
                 controller: 'AddFavorCtrl',
                 controllerAs: 'addFavorCtrl'
             })
-            .when('/getFavors', {
-                templateUrl: 'views/getFavors.html',
-                controller: 'GetFavorsCtrl'
-            })
             .when('/giveFavors', {
-                templateUrl: 'views/giveFavors.html',
-                controller: 'GiveFavorsCtrl'
+                templateUrl: 'views/search.html',
+                controller: 'SearchCtrl',
+                controllerAs: 'searchCtrl'
             })
             .otherwise({redirectTo: '/error'});
     }])
